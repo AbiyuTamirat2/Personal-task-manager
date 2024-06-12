@@ -1,12 +1,27 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
     <title>Personal Task Manager</title>
 </head>
 <body>
     <h1>Welcome to the Personal Task Manager!</h1>
-    <a href="/add-task">Add Task</a>
-    <a href="/view-tasks">View Tasks</a>
+    <a href="/add">Add New Task</a>
+    <table border="1">
+        <tr>
+            <th>Title</th>
+            <th>Description</th>
+            <th>Actions</th>
+        </tr>
+        {% for task in tasks %}
+        <tr>
+            <td>{{ task[1] }}</td>
+            <td>{{ task[2] }}</td>
+            <td>
+                <a href="/edit/{{ task[0] }}">Edit</a>
+                <a href="/delete/{{ task[0] }}">Delete</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
 </body>
 </html>
